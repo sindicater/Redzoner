@@ -1,0 +1,4 @@
+svelte = front end
+python/flask==backend server code
+supabase =cloud storage
+geopy= location  rendering

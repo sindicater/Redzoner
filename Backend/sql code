@@ -1,0 +1,25 @@
+CREATE TABLE tast (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    coords POINT NOT NULL,
+    radius INTEGER NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    crime_type VARCHAR(50),
+    crime_time TIMESTAMPTZ,
+    safety_status BOOLEAN NOT NULL
+);
+
+
+
+data = {
+    "name": "Example Area",
+    "coords": {"latitude": -1.286389, "longitude": 36.817223},
+    "radius": 2000,
+    "type": "unsafe",
+    "crime_type": "burglary",
+    "crime_time": datetime.now().isoformat(),
+    "safety_status": False  # False indicates unsafe
+}
+response = supabase.table('tast').insert(data).execute()
+
+
